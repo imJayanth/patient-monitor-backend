@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "d5ba27f4-b7bd-4628-a283-19fd76d456e4",
+		"name": "Patient-Monitor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"asdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/patient/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/patient/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"patient",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"Invalid password\",\n        \"status\": 401,\n        \"error\": \"User not authorized to access this resource\"\n    }\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"asdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/patient/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"patient",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": \"success\",\n    \"error\": {\n        \"message\": \"\",\n        \"status\": 0,\n        \"error\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetContactsById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"asdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/patient/:ID/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient",
+						":ID",
+						"contacts"
+					],
+					"variable": [
+						{
+							"key": "ID",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"asdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/patient/:ID/contacts",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"patient",
+								":ID",
+								"contacts"
+							],
+							"variable": [
+								{
+									"key": "ID",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"Couldn't find any contacts\",\n        \"status\": 404,\n        \"error\": \"Not found\"\n    }\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"asdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/patient/:ID/contacts",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"patient",
+								":ID",
+								"contacts"
+							],
+							"variable": [
+								{
+									"key": "ID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"patient_id\": 1,\n            \"type\": \"mobile\",\n            \"value\": \"9842698006\"\n        }\n    ],\n    \"error\": {\n        \"message\": \"\",\n        \"status\": 0,\n        \"error\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "AddContact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient_id\": 1,\r\n    \"type\": \"mobile\",\r\n    \"value\": \"9842698006\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/patient/contact",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient",
+						"contact"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patient_id\": 1,\r\n    \"type\": \"mobile\",\r\n    \"value\": \"9842698006\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/patient/contact",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"patient",
+								"contact"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"patient_id\": 1,\n        \"type\": \"mobile\",\n        \"value\": \"9842698006\"\n    },\n    \"error\": {\n        \"message\": \"\",\n        \"status\": 0,\n        \"error\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetSensorData",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"asdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/patient/:ID/sensor-data?type=temperature&from=2022-05-10T08:23:12.547Z&to=2022-05-10T10:23:12.547Z",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient",
+						":ID",
+						"sensor-data"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "temperature"
+						},
+						{
+							"key": "from",
+							"value": "2022-05-10T08:23:12.547Z"
+						},
+						{
+							"key": "to",
+							"value": "2022-05-10T10:23:12.547Z"
+						}
+					],
+					"variable": [
+						{
+							"key": "ID",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"asdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/patient/:ID/contacts",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"patient",
+								":ID",
+								"contacts"
+							],
+							"variable": [
+								{
+									"key": "ID",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"Could not find data\",\n        \"status\": 404,\n        \"error\": \"Not found\"\n    }\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patient_id\":1,\r\n    \"password\":\"asdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/patient/:ID/sensor-data?type=temperature&from=2022-05-10T08:23:12.547Z&to=2022-05-10T10:23:12.547Z",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"patient",
+								":ID",
+								"sensor-data"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "temperature"
+								},
+								{
+									"key": "from",
+									"value": "2022-05-10T08:23:12.547Z"
+								},
+								{
+									"key": "to",
+									"value": "2022-05-10T10:23:12.547Z"
+								}
+							],
+							"variable": [
+								{
+									"key": "ID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"patient_id\": 1,\n            \"timestamp\": \"2022-05-10T08:23:12.547Z\",\n            \"type\": \"temperature\",\n            \"value\": \"96\"\n        }\n    ],\n    \"error\": {\n        \"message\": \"\",\n        \"status\": 0,\n        \"error\": \"\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
